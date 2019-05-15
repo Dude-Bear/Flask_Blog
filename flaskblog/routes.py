@@ -1,10 +1,7 @@
-from flask import Flask, render_template, url_for, flash, redirect
-from forms import RegistrationForm, LoginForm
-
-app = Flask(__name__)
-
-# secret key to protect modefying cookies, ...
-app.config['SECRET_KEY'] = '45abf140032ed87b92351aa9399b2751'
+from flask import render_template, url_for, flash, redirect
+from flaskblog import app
+from flaskblog.forms import RegistrationForm, LoginForm
+from flaskblog.models import User, Post
 
 posts = [
     {
@@ -52,6 +49,3 @@ def login():
     return render_template('login.html', title='Login', form=form)
 
 
-
-if __name__ == '__main__':
-    app.run(debug=True)
